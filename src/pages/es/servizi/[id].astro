@@ -45,22 +45,22 @@ const otherServices = services.filter((s) => s.id !== service.id).slice(0, 3);
 <Layout title={`${service.title} | Emmanuele Durante`}>
   <!-- Hero Section -->
   <FullWidthSection showScrollIndicator={true}>
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent"
-    >
-    </div>
-
     <!-- Breadcrumbs -->
     <div
       class="w-full flex justify-start items-center gap-2 text-sm text-gray-500 mb-10"
     >
-      <a href={translatePath("/")} class="hover:text-primary transition-colors">
+      <a
+        href={translatePath("/")}
+        class="hover:text-primary transition-colors cursor-pointer underline"
+        onclick="window.location.href=this.href; return false;"
+      >
         {t("servicePage.breadcrumbHome")}
       </a>
       <span>/</span>
       <a
         href={translatePath("/#services")}
-        class="hover:text-primary transition-colors"
+        class="hover:text-primary transition-colors cursor-pointer underline"
+        onclick="window.location.href=this.href; return false;"
       >
         {t("servicePage.breadcrumbServices")}
       </a>
@@ -96,7 +96,9 @@ const otherServices = services.filter((s) => s.id !== service.id).slice(0, 3);
 
   <!-- CTA Section -->
   <FullWidthSection bgColor="bg-primary">
-    <div class="w-full flex flex-col items-center text-center justify-center py-16">
+    <div
+      class="w-full flex flex-col items-center text-center justify-center py-16"
+    >
       <div class="max-w-2xl mb-10">
         <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
           {t("servicePage.ctaTitle")}
