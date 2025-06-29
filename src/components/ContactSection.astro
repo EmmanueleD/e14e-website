@@ -1,0 +1,59 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import SectionTitle from "./SectionTitle.astro";
+
+// Get language from URL
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Props
+interface Props {
+  standalone?: boolean;
+  bgColor?: string;
+}
+
+const { standalone = false, bgColor = "bg-white" } = Astro.props;
+---
+
+<section id="contact" class={`w-full py-20 ${bgColor}`}>
+  <div class="px-4">
+    <SectionTitle
+      title={t("contact.title")}
+      accentText={t("contact.titleAccent")}
+      description={t("contact.description")}
+      alignment="start"
+      titleSize="hero"
+      titleColor="text-gray-200"
+      accentColor="text-primary"
+      descriptionColor="text-gray-400"
+    />
+
+    <div class="mt-[100px]">
+      <div class="typeform-container" style="height: 700px; width: 100%;">
+        <iframe
+          src={lang === "es" ? "https://form.typeform.com/to/C2cXrfeh" : "https://form.typeform.com/to/Fxt4Ffe4"}
+          style="border: none; width: 100%; height: 100%;"
+          allow="camera; microphone; autoplay; encrypted-media;"
+          loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Add any component-specific styles here */
+  form {
+    transition: all 0.3s ease;
+  }
+
+  input,
+  textarea {
+    transition: all 0.2s ease;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.2);
+  }
+</style>

@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath
+} from "../i18n/utils";
+import SectionTitle from "../components/SectionTitle.astro";
+import FullWidthSection from "../components/FullWidthSection.astro";
+
+// Get current language and translations
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+// Portfolio projects data
+const projects = [
+  {
+    id: "Dr Jona Cracks",
+    title: "Landing page con CMS personalizzato",
+    client: "Jhonatan Müller",
+    description:
+      "Landingpage per Jona, un talentoso Quiropractico operante a Valencia. El sitio web tiene un CMS personalizado para la gestión del contenido y un diseño moderno.",
+    image:
+      "https://www.drjonacracks.com/_next/image?url=https%3A%2F%2Fvxizhosszagbquzejolv.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fabout%2Fimages%2F1750615118733.jpeg&w=3840&q=75",
+    technologies: ["Next", "Supabase", "Tailwind CSS"],
+    url: "https://www.drjonacracks.com"
+  },
+  {
+    id: "Whappy",
+    title: "Plataforma de gamificación",
+    client: "Whappy",
+    description:
+      "Plataforma de gamificación para Whappy, una empresa que proporciona servicios de gamificación a otras empresas. La plataforma tiene un CMS personalizado para la gestión del contenido y un diseño moderno. He construido la parte del frontend y la PWA",
+    image:
+      "https://www.whappy.it/wp-content/uploads/Whappy-enterprise-gamification-home.jpg",
+    technologies: ["Vue", "Ionic"],
+    url: "https://www.whappy.it"
+  },
+  {
+    id: "DataRete Cloud",
+    title: "Plataforma de gestión",
+    client: "DataRete Cloud",
+    description:
+      "Plataforma de gestión para DataRete Cloud, una empresa que proporciona servicios de nube a otras empresas. La plataforma tiene un CMS personalizado para la gestión del contenido y un diseño moderno. He construido la parte del frontend y la PWA",
+    image:
+      "https://datarete.cloud/wp-content/uploads/2021/09/Datarete_Signature-Logo-300-white.png",
+    technologies: ["Vue", "Primevue"],
+    url: "https://datarete.cloud"
+  }
+];
+---
+
+<Layout
+  title={`${t("clientProjects.title")} ${t("clientProjects.titleAccent")} | Emmanuele Durante`}
+>
+  <FullWidthSection bgColor="bg-white">
+    <div class="">
+      <SectionTitle
+        title={t("clientProjects.title")}
+        accentText={t("clientProjects.titleAccent")}
+        description={t("clientProjects.description")}
+        alignment="start"
+        titleSize="hero"
+        titleColor="text-gray-800"
+        accentColor="text-primary"
+        descriptionColor="text-gray-400"
+      />
+    </div>
+  </FullWidthSection>
+
+  <FullWidthSection bgColor="bg-gray-800" padding="py-16">
+    <div class="">
+      <SectionTitle
+        title={t("clientProjects.title")}
+        accentText={t("clientProjects.titleAccent")}
+        description={t("clientProjects.description")}
+        alignment="start"
+        titleSize="large"
+        titleColor="text-gray-200"
+        accentColor="text-primary"
+        descriptionColor="text-gray-400"
+      />
+
+      <div class="mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {
+            projects.map((project) => (
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="h-48 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">{project.title}</h3>
+                  <p class="text-gray-600 mb-2">
+                    <span class="font-semibold">
+                      {t("clientProjects.client")}:
+                    </span>{" "}
+                    {project.client}
+                  </p>
+                  <p class="text-gray-700 mb-4">{project.description}</p>
+                  <div class="mb-4">
+                    <p class="font-semibold text-primary mb-2">
+                      {t("clientProjects.technologies")}
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <span class="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary w-full"
+                  >
+                    {t("clientProjects.viewProject")}
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </FullWidthSection>
+</Layout>

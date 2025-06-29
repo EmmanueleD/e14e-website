@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import FullWidthSection from "../components/FullWidthSection.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+// Get language from URL
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="Terms and Conditions | Emmanuele Durante">
+  <FullWidthSection>
+    <SectionTitle
+      title="Terms and"
+      accentText="Conditions"
+      alignment="start"
+      titleSize="hero"
+    />
+
+    <div class="w-full max-w-4xl mx-auto prose prose-lg py-8">
+      <h2>Services Offered</h2>
+      <p>
+        The website is operated by a freelance web agency offering services related to website development, Shopify solutions, and digital automations.
+      </p>
+
+      <h2>Service Delivery</h2>
+      <p>
+        All services are provided digitally, either online or in person by prior agreement. Services are offered only after a custom quote is approved.
+      </p>
+
+      <h2>Payment Terms</h2>
+      <p>
+        Payment is required via bank transfer or PayPal. In general, services require advance payment unless otherwise agreed in writing.
+      </p>
+
+      <h2>Refund Policy</h2>
+      <p>
+        No refunds or withdrawal rights are granted once the service has been started or delivered.
+      </p>
+
+      <h2>Liability Disclaimer</h2>
+      <p>
+        The provider is not responsible for any damages resulting from third-party services such as hosting, external plugins, or tools beyond direct control.
+      </p>
+    </div>
+  </FullWidthSection>
+</Layout>

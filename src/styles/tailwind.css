@@ -1,0 +1,16 @@
+@tailwind base;
+
+:root {
+  --color-text-base: theme("colors.gray.700");
+  --color-text-muted: theme("colors.gray.500");
+  --color-text-inverted: theme("colors.white");
+}
+
+@layer base {
+  body {
+    @apply text-[color:var(--color-text-base)];
+  }
+}
+
+@tailwind components;
+@tailwind utilities;

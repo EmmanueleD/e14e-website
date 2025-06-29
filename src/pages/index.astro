@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+  getServices
+} from "../i18n/utils";
+import SectionTitle from "../components/SectionTitle.astro";
+import FullWidthSection from "../components/FullWidthSection.astro";
+import ContactSection from "../components/ContactSection.astro";
+
+// Get current language and translations
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+// Get services for the current language
+const services = getServices(lang);
+---
+
+<Layout title="Emmanuele Durante - Web Developer">
+  <!-- Hero Section -->
+  <FullWidthSection id="hero" showScrollIndicator={true}>
+    <SectionTitle
+      title={t("hero.title")}
+      accentText={t("hero.titleAccent")}
+      description={t("hero.description")}
+      alignment="start"
+      titleSize="hero"
+    >
+      <a
+        href={translatePath("/#contact")}
+        class="inline-block bg-primary text-white font-medium px-8 py-4 rounded-lg text-lg hover:bg-primary/90 transition-colors"
+      >
+        {t("hero.cta")}
+      </a>
+    </SectionTitle>
+  </FullWidthSection>
+
+  <!-- Services Section -->
+  <FullWidthSection id="services" bgColor="bg-gray-800">
+    <SectionTitle
+      title={t("services.title")}
+      accentText={t("services.titleAccent")}
+      description={t("services.description")}
+      alignment="start"
+      titleSize="hero"
+      titleColor="text-gray-200"
+      accentColor="text-primary"
+      descriptionColor="text-gray-400"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-8 mt-16">
+      {
+        services.map(
+          (service: {
+            id: string;
+            title: string;
+            description: string;
+            icon: string;
+            titleAccent: string;
+          }) => (
+            <a
+              href={translatePath(`/servizi/${service.id}`)}
+              class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group p-8"
+            >
+              <h3 class="text-2xl font-bold mb-3">
+                {service.title} {service.titleAccent}
+              </h3>
+              <p class="mb-6">{service.description}</p>
+              <div class="flex items-center text-primary font-medium">
+                <span>{t("servicePage.ctaButton")}</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 ml-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </a>
+          )
+        )
+      }
+    </div>
+  </FullWidthSection>
+</Layout>
+
+<style>
+  /* Enhanced snap scrolling */
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  /* Ensure sections take up full viewport height */
+  section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
