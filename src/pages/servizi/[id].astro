@@ -8,7 +8,7 @@ import {
   useTranslatedPath,
   getServiceById,
   getServices,
-  supportedLanguages
+  supportedLanguages,
 } from "../../i18n/utils";
 import { services as servicesData } from "../../i18n/services";
 
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
   for (const service of services) {
     paths.push({
       params: { id: service.id },
-      props: { service, lang: "en" }
+      props: { service, lang: "en" },
     });
   }
 
@@ -94,7 +94,7 @@ const otherServices = services.filter((s) => s.id !== service.id).slice(0, 3);
   </FullWidthSection>
 
   <!-- CTA Section -->
-  <FullWidthSection bgColor="bg-primary">
+  <!-- <FullWidthSection bgColor="bg-primary">
     <div
       class="w-full flex flex-col items-center text-center justify-center py-16"
     >
@@ -115,5 +115,5 @@ const otherServices = services.filter((s) => s.id !== service.id).slice(0, 3);
         </a>
       </div>
     </div>
-  </FullWidthSection>
+  </FullWidthSection> -->
 </Layout>
