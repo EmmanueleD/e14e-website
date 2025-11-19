@@ -1,19 +1,22 @@
 ---
-import { languages } from '../i18n/utils';
-import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
+import { languages } from "../i18n/utils";
+import { getLangFromUrl, useTranslatedPath } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const translatePath = useTranslatedPath(lang);
 ---
+
 <ul class="flex items-center gap-2">
-  {Object.entries(languages).map(([langCode, label]) => (
-    <li>
-      <a 
-        href={translatePath(Astro.url.pathname, langCode)} 
-        class={`px-3 py-1 text-sm rounded-full transition-colors ${lang === langCode ? "bg-white text-primary font-medium shadow-sm" : "text-secondary hover:text-primary"}`}
-      >
-        {label}
-      </a>
-    </li>
-  ))}
+  {
+    Object.entries(languages).map(([langCode, label]) => (
+      <li>
+        <a
+          href={translatePath(Astro.url.pathname, langCode)}
+          class={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all uppercase tracking-wider ${lang === langCode ? "bg-accent-orange text-space-dark" : "text-text-muted hover:text-accent-orange hover:bg-white/5"}`}
+        >
+          {langCode}
+        </a>
+      </li>
+    ))
+  }
 </ul>

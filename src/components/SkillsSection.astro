@@ -1,0 +1,154 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const skills = [
+  {
+    category: "Fullstack Development",
+    items: ["React", "Vue", "Next.js", "Node.js", "SQL/PostgreSQL", "Supabase"],
+    icon: "code",
+  },
+  {
+    category: "E-commerce Solutions",
+    items: [
+      "Shopify Plus",
+      "Liquid",
+      "Hydrogen",
+      "Storefront API",
+      "Custom Apps",
+    ],
+    icon: "shopping-bag",
+  },
+  {
+    category: "Creative & Automation",
+    items: [
+      "Three.js/WebGL",
+      "n8n Workflows",
+      "GSAP",
+      "Framer Motion",
+      "API Integrations",
+    ],
+    icon: "cpu",
+  },
+];
+---
+
+<section id="skills" class="py-32 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+        {t("skills.title")}
+        <span class="text-accent-orange">{t("skills.titleAccent")}</span>
+      </h2>
+      <p class="text-text-muted text-lg max-w-2xl">
+        {t("skills.description")}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        skills.map((skill) => (
+          <div class="glass-panel p-8 hover:bg-white/10 transition-all duration-300 group border-t-4 border-t-transparent hover:border-t-accent-orange">
+            <div class="mb-6 text-accent-orange">
+              {skill.icon === "code" && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  />
+                </svg>
+              )}
+              {skill.icon === "cpu" && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              )}
+              {skill.icon === "database" && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.58 4 8 4s8-1.79 8-4M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4m0 5c0 2.21-3.58 4-8 4s-8-1.79-8-4"
+                  />
+                </svg>
+              )}
+              {skill.icon === "shopping-bag" && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                  />
+                </svg>
+              )}
+              {skill.icon === "cube" && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-10 w-10"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                  />
+                </svg>
+              )}
+            </div>
+
+            <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-accent-orange transition-colors">
+              {skill.category}
+            </h3>
+
+            <ul class="space-y-3">
+              {skill.items.map((item) => (
+                <li class="flex items-center text-text-muted">
+                  <span class="w-1.5 h-1.5 bg-accent-orange rounded-full mr-3" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

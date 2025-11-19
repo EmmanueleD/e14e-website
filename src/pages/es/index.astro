@@ -1,114 +1,138 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import {
-  getLangFromUrl,
-  useTranslations,
-  useTranslatedPath,
-  getServices
-} from "../../i18n/utils";
-import SectionTitle from "../../components/SectionTitle.astro";
-import FullWidthSection from "../../components/FullWidthSection.astro";
+import Navbar from "../../components/Navbar.astro";
+import StarField from "../../components/StarField.jsx";
+import SkillsSection from "../../components/SkillsSection.astro";
+import ProjectsSection from "../../components/ProjectsSection.astro";
 import ContactSection from "../../components/ContactSection.astro";
-
-// Get current language and translations
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
-
-// Get services for the current language
-const services = getServices(lang);
 ---
 
-<Layout title="Emmanuele Durante - Web Developer">
+<Layout title="Emmanuele Durante - Frontend Developer">
+  <Navbar />
+
   <!-- Hero Section -->
-  <FullWidthSection id="hero" showScrollIndicator={true}>
-    <SectionTitle
-      title={t("hero.title")}
-      accentText={t("hero.titleAccent")}
-      description={t("hero.description")}
-      alignment="start"
-      titleSize="hero"
-    >
-      <a
-        href={translatePath("/#contact")}
-        class="inline-block bg-primary text-white font-medium px-8 py-4 rounded-lg text-lg hover:bg-primary/90 transition-colors"
-      >
-        {t("hero.cta")}
-      </a>
-    </SectionTitle>
-  </FullWidthSection>
-
-  <!-- Services Section -->
-  <FullWidthSection id="services" bgColor="bg-gray-800">
-    <SectionTitle
-      title={t("services.title")}
-      accentText={t("services.titleAccent")}
-      description={t("services.description")}
-      alignment="start"
-      titleSize="hero"
-      titleColor="text-gray-200"
-      accentColor="text-primary"
-      descriptionColor="text-gray-400"
-    />
-
-    <div class="grid grid-cols-1 md:grid-cols-6 gap-8 mt-16">
-      {
-        services.map(
-          (service: {
-            id: string;
-            title: string;
-            description: string;
-            icon: string;
-            titleAccent: string;
-          }) => (
-            <a
-              href={translatePath(`/servizi/${service.id}`)}
-              class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group p-8"
-            >
-              <h3 class="text-2xl font-bold mb-3">
-                {service.title} {service.titleAccent}
-              </h3>
-              <p class="mb-6">{service.description}</p>
-              <div class="flex items-center text-primary font-medium">
-                <span>{t("servicePage.ctaButton")}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 ml-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </div>
-            </a>
-          )
-        )
-      }
+  <section
+    class="relative min-h-screen flex items-center pt-20 overflow-hidden"
+  >
+    <!-- 3D Background Element -->
+    <div class="absolute inset-0 z-0">
+      <StarField client:load />
     </div>
-  </FullWidthSection>
+
+    <div
+      class="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+    >
+      <div class="text-left">
+        <div
+          class="inline-block px-3 py-1 mb-6 border border-accent-orange/30 rounded-full bg-accent-orange/10 backdrop-blur-sm"
+        >
+          <span
+            class="text-accent-orange text-sm font-medium tracking-wider uppercase"
+            >Disponible para contratar</span
+          >
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          Web <br />
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500"
+            >Developer</span
+          >
+          <span class="text-accent-orange">.</span>
+        </h1>
+        <p class="text-xl text-text-muted mb-8 max-w-lg leading-relaxed">
+          Construyo experiencias digitales completas, eficientes y escalables.
+          Desde la idea hasta la producción, cuido cada detalle de tu ecosistema
+          web.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="btn-primary"> Hablemos </a>
+          <a
+            href="#skills"
+            class="px-6 py-3 rounded-lg font-medium text-white border border-white/20 hover:bg-white/10 transition-all"
+          >
+            Explorar Stack
+          </a>
+        </div>
+
+        <div class="mt-12 flex items-center gap-8 text-text-muted/50">
+          <div class="flex flex-col">
+            <span class="text-2xl font-bold text-white">5+</span>
+            <span class="text-xs uppercase tracking-wider">Años Exp</span>
+          </div>
+          <div class="w-px h-10 bg-white/10"></div>
+          <div class="flex flex-col">
+            <span class="text-2xl font-bold text-white">50+</span>
+            <span class="text-xs uppercase tracking-wider">Proyectos</span>
+          </div>
+          <div class="w-px h-10 bg-white/10"></div>
+          <div class="flex flex-col">
+            <span class="text-2xl font-bold text-white">100%</span>
+            <span class="text-xs uppercase tracking-wider"
+              >Clientes Felices</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side is empty to let the 3D element shine, or maybe some code snippets later -->
+      <div class="hidden md:block"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div
+        class="glass-panel p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center"
+      >
+        <div class="flex-1">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            No una agencia, sino un <span class="text-accent-orange">socio</span
+            >.
+          </h2>
+          <p class="text-lg text-text-muted leading-relaxed mb-6">
+            Hola, soy Emmanuele. Ofrezco un enfoque directo, personal y
+            altamente técnico para el desarrollo web. Me concentro en crear
+            soluciones digitales a medida, cuidando cada detalle desde el diseño
+            hasta el código final.
+          </p>
+          <p class="text-lg text-text-muted leading-relaxed">
+            Combino la solidez técnica de un desarrollador Fullstack con la
+            sensibilidad estética necesaria para la web moderna. Desde el código
+            limpio de Shopify hasta arquitecturas complejas con React y Node, mi
+            objetivo es siempre el mismo: calidad sin compromisos.
+          </p>
+        </div>
+
+        <!-- Profile Photo Placeholder -->
+        <div class="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 relative group">
+          <div
+            class="absolute inset-0 bg-accent-orange/20 rounded-full blur-2xl group-hover:bg-accent-orange/30 transition-colors duration-500"
+          >
+          </div>
+          <div
+            class="relative w-full h-full rounded-full overflow-hidden border-2 border-white/10 bg-space-light"
+          >
+            <!-- Neutral Image (Grayscale, visible by default) -->
+            <img
+              src="/assets/profile_v3_neutral.png"
+              alt="Emmanuele Durante"
+              class="absolute inset-0 w-full h-full object-cover object-center filter grayscale transition-opacity duration-500 group-hover:opacity-0"
+              onerror="this.src='https://via.placeholder.com/400x400/0B1026/FFFFFF?text=e14e'"
+            />
+            <!-- Smiling Image (Color, visible on hover) -->
+            <img
+              src="/assets/profile_v3_smile.png"
+              alt="Emmanuele Durante Smiling"
+              class="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SkillsSection />
+  <!-- <ProjectsSection /> -->
+  <ContactSection />
 </Layout>
-
-<style>
-  /* Enhanced snap scrolling */
-  html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-  }
-
-  section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-
-  /* Ensure sections take up full viewport height */
-  section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-</style>

@@ -1,0 +1,26 @@
+[
+  {
+    "title": "E-commerce Fashion Brand",
+    "category": "Shopify Plus",
+    "description": "Redesign completo con focus su UX mobile e integrazione ERP custom.",
+    "tags": ["Liquid", "JavaScript", "Tailwind"],
+    "image": "bg-gradient-to-br from-purple-900 to-blue-900",
+    "link": "#"
+  },
+  {
+    "title": "3D Product Configurator",
+    "category": "Web App",
+    "description": "Configuratore interattivo in tempo reale per prodotti personalizzabili.",
+    "tags": ["React", "Three.js", "Zustand"],
+    "image": "bg-gradient-to-br from-orange-900 to-red-900",
+    "link": "#"
+  },
+  {
+    "title": "Corporate Portfolio",
+    "category": "Frontend",
+    "description": "Sito vetrina ad alte prestazioni con animazioni scroll-driven.",
+    "tags": ["Astro", "Framer Motion", "Sanity"],
+    "image": "bg-gradient-to-br from-blue-900 to-cyan-900",
+    "link": "#"
+  }
+]

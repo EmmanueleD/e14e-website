@@ -1,128 +1,123 @@
 // Translations for the website
 export const translations = {
+  it: {
+    nav: {
+      services: "Servizi",
+      clientProjects: "Progetti",
+      contact: "Contatti"
+    },
+    hero: {
+      title: "Web",
+      titleAccent: "Developer",
+      description: "Costruisco esperienze digitali complete, performanti e scalabili. Dall'idea alla messa in produzione, curo ogni dettaglio del tuo ecosistema web.",
+      cta: "Parliamone",
+      ctaSecondary: "Esplora Stack",
+      stats: {
+        years: "Anni Exp",
+        projects: "Progetti",
+        clients: "Clienti Felici"
+      }
+    },
+    about: {
+      title: "Non un'agenzia, ma un",
+      titleAccent: "partner",
+      p1: "Ciao, sono Emmanuele. Offro un approccio allo sviluppo web diretto, personale e altamente tecnico. Mi concentro sulla creazione di soluzioni digitali su misura, curando ogni dettaglio dalla progettazione al codice finale.",
+      p2: "Combino la solidità tecnica di uno sviluppatore Fullstack con la sensibilità estetica necessaria per il web moderno. Dal codice pulito di Shopify alle architetture complesse con React e Node, il mio obiettivo è sempre lo stesso: qualità senza compromessi."
+    },
+    skills: {
+      title: "Tech",
+      titleAccent: "Stack",
+      description: "Un set di strumenti selezionato per garantire performance, scalabilità ed esperienze visive memorabili."
+    },
+    contact: {
+      title: "Pronto a lanciare il tuo",
+      titleAccent: "prossimo progetto?",
+      description: "Che tu abbia bisogno di un e-commerce Shopify performante o di un'esperienza web immersiva, parliamone.",
+      cta: "Invia una Email",
+      ctaSecondary: "Prenota una Call (30 min gratis)"
+    },
+    footer: {
+      rights: "Tutti i diritti riservati."
+    }
+  },
   en: {
-    // Navigation
     nav: {
       services: "Services",
-      clientProjects: "Clients",
+      clientProjects: "Projects",
       contact: "Contact"
     },
-    // Hero Section
     hero: {
-      title: "Your ideas",
-      titleAccent: "crafted around you",
-      description:
-        "In this changing era, I will help you create a website that will make your business thrive.",
-      cta: "Contact us"
+      title: "Web",
+      titleAccent: "Developer",
+      description: "I build complete, performant, and scalable digital experiences. From concept to production, I take care of every detail of your web ecosystem.",
+      cta: "Let's Talk",
+      ctaSecondary: "Explore Stack",
+      stats: {
+        years: "Years Exp",
+        projects: "Projects",
+        clients: "Happy Clients"
+      }
     },
-    // Services Section
-    services: {
-      title: "Services",
-      titleAccent: "For you",
-      description: "Customized solutions to grow your online business."
+    about: {
+      title: "Not an agency, but a",
+      titleAccent: "partner",
+      p1: "Hi, I'm Emmanuele. I offer a direct, personal, and highly technical approach to web development. I focus on creating custom digital solutions, curating every detail from design to final code.",
+      p2: "I combine the technical solidity of a Fullstack developer with the aesthetic sensitivity needed for the modern web. From clean Shopify code to complex architectures with React and Node, my goal is always the same: quality without compromise."
     },
-    // Contact Section
+    skills: {
+      title: "Tech",
+      titleAccent: "Stack",
+      description: "A curated set of tools to ensure performance, scalability, and memorable visual experiences."
+    },
     contact: {
-      title: "Get in",
-      titleAccent: "Touch",
-      description: "Ready to start your project? Contact us today.",
-      formName: "Name",
-      formEmail: "Email",
-      formMessage: "Message",
-      formSubmit: "Send Message"
+      title: "Ready to launch your",
+      titleAccent: "next project?",
+      description: "Whether you need a high-performance Shopify e-commerce or an immersive web experience, let's talk.",
+      cta: "Send an Email",
+      ctaSecondary: "Book a Call (30 min free)"
     },
-    // Footer
     footer: {
       rights: "All rights reserved."
-    },
-    // Service Page
-    servicePage: {
-      breadcrumbHome: "Home",
-      breadcrumbServices: "Services",
-      detailsTitle: "Discover",
-      detailsAccent: "All Details",
-      ctaTitle: "Interested in this service?",
-      ctaDescription:
-        "Contact us to discuss your project and discover how we can help you.",
-      ctaButton: "Contact us",
-      relatedServices: "Other services"
-    },
-    // Client Projects Page
-    clientProjects: {
-      title: "Client",
-      titleAccent: "Projects",
-      description:
-        "A showcase of successful collaborations and professional solutions.",
-      projectsTitle: "Featured",
-      projectsTitleAccent: "Projects",
-      viewProject: "View Project",
-      client: "Client",
-      technologies: "Technologies used:",
-      breadcrumbHome: "Home",
-      breadcrumbClientProjects: "Client Projects"
     }
   },
   es: {
-    // Navigation
     nav: {
       services: "Servicios",
-      clientProjects: "Clientes",
+      clientProjects: "Proyectos",
       contact: "Contacto"
     },
-    // Hero Section
     hero: {
-      title: "Tus ideas",
-      titleAccent: "Plasmadas a tu manera",
-      description:
-        "En esta era cambiante, ayudaré a crear una experiencia web premium para tu negocio.",
-      cta: "Contáctanos"
+      title: "Desarrollador",
+      titleAccent: "Web",
+      description: "Construyo experiencias digitales completas, eficientes y escalables. Desde la idea hasta la producción, cuido cada detalle de tu ecosistema web.",
+      cta: "Hablemos",
+      ctaSecondary: "Explorar Stack",
+      stats: {
+        years: "Años Exp",
+        projects: "Proyectos",
+        clients: "Clientes Felices"
+      }
     },
-    // Services Section
-    services: {
-      title: "Servicios",
-      titleAccent: "Para ti",
-      description:
-        "Soluciones personalizadas para hacer crecer tu negocio en línea."
+    about: {
+      title: "No una agencia, sino un",
+      titleAccent: "socio",
+      p1: "Hola, soy Emmanuele. Ofrezco un enfoque directo, personal y altamente técnico para el desarrollo web. Me concentro en crear soluciones digitales a medida, cuidando cada detalle desde el diseño hasta el código final.",
+      p2: "Combino la solidez técnica de un desarrollador Fullstack con la sensibilidad estética necesaria para la web moderna. Desde el código limpio de Shopify hasta arquitecturas complejas con React y Node, mi objetivo es siempre el mismo: calidad sin compromisos."
     },
-    // Contact Section
+    skills: {
+      title: "Tech",
+      titleAccent: "Stack",
+      description: "Un conjunto seleccionado de herramientas para garantizar rendimiento, escalabilidad y experiencias visuales memorables."
+    },
     contact: {
-      title: "Ponte en",
-      titleAccent: "Contacto",
-      description: "¿Listo para comenzar tu proyecto? Contáctanos hoy.",
-      formName: "Nombre",
-      formEmail: "Correo electrónico",
-      formMessage: "Mensaje",
-      formSubmit: "Enviar Mensaje"
+      title: "¿Listo para lanzar tu",
+      titleAccent: "próximo proyecto?",
+      description: "Ya sea que necesites un e-commerce Shopify de alto rendimiento o una experiencia web inmersiva, hablémoslo.",
+      cta: "Enviar un Correo",
+      ctaSecondary: "Reservar una Llamada (30 min gratis)"
     },
-    // Footer
     footer: {
       rights: "Todos los derechos reservados."
-    },
-    // Service Page
-    servicePage: {
-      breadcrumbHome: "Inicio",
-      breadcrumbServices: "Servicios",
-      detailsTitle: "Descubre",
-      detailsAccent: "Todos los Detalles",
-      ctaTitle: "¿Interesado en este servicio?",
-      ctaDescription:
-        "Contáctanos para discutir tu proyecto y descubrir cómo podemos ayudarte.",
-      ctaButton: "Contáctanos",
-      relatedServices: "Otros servicios"
-    },
-    // Client Projects Page
-    clientProjects: {
-      title: "Proyectos de",
-      titleAccent: "Clientes",
-      description:
-        "Una muestra de colaboraciones exitosas y soluciones profesionales.",
-      projectsTitle: "Proyectos",
-      projectsTitleAccent: "Destacados",
-      client: "Cliente",
-      viewProject: "Ver Proyecto",
-      technologies: "Tecnologías utilizadas:",
-      breadcrumbHome: "Inicio",
-      breadcrumbClientProjects: "Proyectos de Clientes"
     }
   }
 };
