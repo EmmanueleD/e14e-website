@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import StarField from "../components/StarField.jsx";
 
 interface Props {
   title: string;
@@ -28,7 +29,13 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen overflow-x-hidden">
+  <body class="min-h-screen overflow-x-hidden bg-space-dark">
+    <!-- Fixed starfield background -->
+    <div class="fixed inset-0 z-0">
+      <StarField client:load />
+    </div>
+
+    <!-- Content scrolls over the stars -->
     <main class="relative z-10">
       <slot />
     </main>

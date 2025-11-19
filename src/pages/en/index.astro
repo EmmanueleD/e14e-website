@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
-import StarField from "../../components/StarField.jsx";
 import SkillsSection from "../../components/SkillsSection.astro";
 import ProjectsSection from "../../components/ProjectsSection.astro";
 import ContactSection from "../../components/ContactSection.astro";
@@ -14,11 +13,6 @@ import ContactSection from "../../components/ContactSection.astro";
   <section
     class="relative min-h-screen flex items-center pt-20 overflow-hidden"
   >
-    <!-- 3D Background Element -->
-    <div class="absolute inset-0 z-0">
-      <StarField client:load />
-    </div>
-
     <div
       class="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
     >
