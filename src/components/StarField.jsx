@@ -14,7 +14,7 @@ function Stars({ mousePos }) {
       ref.current.rotation.y -= delta / 15;
       
       // Mouse interaction parallax using global mouse position
-      const targetX = mousePos.y * 0.15;
+      const targetX = mousePos.y * -0.15;
       const targetY = mousePos.x * 0.15;
       ref.current.rotation.x += (targetX - ref.current.rotation.x) * delta * 2;
       ref.current.rotation.y += (targetY - ref.current.rotation.y) * delta * 2;
